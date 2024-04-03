@@ -25,14 +25,14 @@ struct MetalLayerView: UIViewRepresentable {
     func makeCoordinator() -> Coordinator {
         print("makeCoordinator")
         let coordinator = Coordinator()
-//        context.coordinator.startDisplayLink()
+        coordinator.startDisplayLink()
         return coordinator
     }
 
     class Coordinator: NSObject {
         var metalLayer: CAMetalLayer?
         var metalRenderer: CppMetalRendererWrapper
-//        var displayLink: CADisplayLink?
+        var displayLink: CADisplayLink?
 
         override init() {
             self.metalRenderer = CppMetalRendererWrapper()
@@ -55,19 +55,19 @@ struct MetalLayerView: UIViewRepresentable {
             self.metalRenderer.render(drawable)
         }
 
-//        func startDisplayLink() {
-//            displayLink = CADisplayLink(target: self, selector: #selector(step))
-//            displayLink?.add(to: .current, forMode: .default)
-//        }
-//
-//        @objc func step(displaylink: CADisplayLink) {
-//            render()
-//        }
-//
-//        func stopDisplayLink() {
-//            displayLink?.invalidate()
-//            displayLink = nil
-//        }
+        func startDisplayLink() {
+            self.displayLink = CADisplayLink(target: self, selector: #selector(step))
+            self.displayLink?.add(to: .current, forMode: .default)
+        }
+
+        @objc func step(displaylink: CADisplayLink) {
+            render()
+        }
+
+        func stopDisplayLink() {
+            self.displayLink?.invalidate()
+            self.displayLink = nil
+        }
     }
 }
 

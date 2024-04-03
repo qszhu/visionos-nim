@@ -7,8 +7,14 @@
 
 import SwiftUI
 
+class AppDelegateAdapter: AppDelegate {
+
+}
+
 @main
 struct avptest2App: App {
+    @UIApplicationDelegateAdaptor(AppDelegateAdapter.self) var appDelegate
+
     var body: some Scene {
         WindowGroup {
             ContentView()

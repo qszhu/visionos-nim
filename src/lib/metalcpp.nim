@@ -10,8 +10,17 @@ type
   NSStringObj {.importcpp: "NS::String".} = object
   NSString* = ptr NSStringObj
 
+  NSAutoreleasePoolObj {.importcpp: "NS::AutoreleasePool".} = object
+  NSAutoreleasePool* = ptr NSAutoreleasePoolObj
+
 proc NSStringAscii*(str: cstring): NSString
   {.importcpp: "NS::String::string(#, NS::ASCIIStringEncoding)".}
+
+proc initNSAutoreleasePool*(): NSAutoreleasePool
+  {.importcpp: "NS::AutoreleasePool::alloc()->init()".}
+
+proc release*(pool: NSAutoreleasePool)
+  {.importcpp: "#->release()".}
 
 {.push header: METAL.}
 type
@@ -108,6 +117,8 @@ proc setPixelFormat*(self: MTLRenderPipelineColorAttachmentDescriptor, pf: MTLPi
 
 proc initMTLRenderPassDescriptor*(): MTLRenderPassDescriptor
   {.importcpp: "MTL::RenderPassDescriptor::alloc()->init()".}
+proc release*(self: MTLRenderPassDescriptor)
+  {.importcpp: "#->release()".}
 
 proc colorAttachments*(self: MTLRenderPassDescriptor): MTLRenderPassColorAttachmentDescriptorArray
   {.importcpp: "#->colorAttachments()".}

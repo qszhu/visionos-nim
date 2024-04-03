@@ -10,10 +10,16 @@ type
   NimMetalRenderer = ref NimMetalRendererObj
 
 proc setupMetal(self: NimMetalRenderer) =
+  var pool = initNSAutoreleasePool()
+
   self.device = MTLCreateSystemDefaultDevice()
   self.commandQueue = self.device.newCommandQueue()
 
+  pool.release()
+
 proc setupRenderPipeline(self: NimMetalRenderer) =
+  var pool = initNSAutoreleasePool()
+
   var err: NSError = nil
   let defaultLibrary = self.device.newDefaultLibrary()
   let vertexFunction = defaultLibrary.newFunction(NSStringAscii("vertexShader"))
@@ -24,12 +30,16 @@ proc setupRenderPipeline(self: NimMetalRenderer) =
   pipelineDescriptor.colorAttachments().objectAt(0).setPixelFormat(MTLPixelFormatBGRA8Unorm)
   self.pipelineState = self.device.newRenderPipelineState(pipelineDescriptor, addr(err))
 
+  pool.release()
+
 proc newNimMetalRenderer*(): NimMetalRenderer {.exportc.} =
   result.new
   result.setupMetal
   result.setupRenderPipeline
 
 proc render*(self: NimMetalRenderer, drawable: CAMetalDrawable) {.exportc.} =
+  var pool = initNSAutoreleasePool()
+
   let renderPassDescriptor = initMTLRenderPassDescriptor()
   renderPassDescriptor.colorAttachments().objectAt(0).setTexture(drawable.texture())
   renderPassDescriptor.colorAttachments().objectAt(0).setClearColor(MTLClearColorMake(0.5, 0.5, 0.5, 1.0))
@@ -44,3 +54,7 @@ proc render*(self: NimMetalRenderer, drawable: CAMetalDrawable) {.exportc.} =
 
   commandBuffer.presentDrawable(cast[MTLDrawable](drawable))
   commandBuffer.commit()
+
+  renderPassDescriptor.release
+
+  pool.release

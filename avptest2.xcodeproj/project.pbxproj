@@ -13,6 +13,9 @@
 		FF27F5612BBD0779003B1C5B /* @m..@s..@s..@s..@s..@s..@sopt@shomebrew@sCellar@snim@s2.0.0_1@snim@slib@ssystem@sdollars.nim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF27F5582BBD074D003B1C5B /* @m..@s..@s..@s..@s..@s..@sopt@shomebrew@sCellar@snim@s2.0.0_1@snim@slib@ssystem@sdollars.nim.cpp */; };
 		FF27F5622BBD0779003B1C5B /* @m..@s..@s..@s..@s..@s..@sopt@shomebrew@sCellar@snim@s2.0.0_1@snim@slib@ssystem@sexceptions.nim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF27F5592BBD074D003B1C5B /* @m..@s..@s..@s..@s..@s..@sopt@shomebrew@sCellar@snim@s2.0.0_1@snim@slib@ssystem@sexceptions.nim.cpp */; };
 		FF27F5632BBD0779003B1C5B /* @mNimMetalRenderer.nim.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FF27F55A2BBD074D003B1C5B /* @mNimMetalRenderer.nim.cpp */; };
+		FF27F5682BBD0BF8003B1C5B /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = FF27F5672BBD0BF8003B1C5B /* AppDelegate.mm */; };
+		FF27F56A2BBD0DFB003B1C5B /* nimbase.h in Sources */ = {isa = PBXBuildFile; fileRef = FF27F55C2BBD074D003B1C5B /* nimbase.h */; };
+		FF27F56B2BBD0DFB003B1C5B /* NimMetalRenderer.h in Sources */ = {isa = PBXBuildFile; fileRef = FF27F55D2BBD074D003B1C5B /* NimMetalRenderer.h */; };
 		FF9AC3EA2BB3DD7800584794 /* CppMetalRendererWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = FF9AC3E92BB3DD7800584794 /* CppMetalRendererWrapper.mm */; };
 		FFD753A92BAD565D0037DF49 /* avptest2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD753A82BAD565D0037DF49 /* avptest2App.swift */; };
 		FFD753AB2BAD565D0037DF49 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD753AA2BAD565D0037DF49 /* ContentView.swift */; };
@@ -34,6 +37,8 @@
 		FF27F55B2BBD074D003B1C5B /* libNimMetalRenderer.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = libNimMetalRenderer.json; sourceTree = "<group>"; };
 		FF27F55C2BBD074D003B1C5B /* nimbase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nimbase.h; sourceTree = "<group>"; };
 		FF27F55D2BBD074D003B1C5B /* NimMetalRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NimMetalRenderer.h; sourceTree = "<group>"; };
+		FF27F5672BBD0BF8003B1C5B /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		FF27F5692BBD0C0C003B1C5B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FF9AC3E62BB3D9AD00584794 /* avptest2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "avptest2-Bridging-Header.h"; sourceTree = "<group>"; };
 		FF9AC3E92BB3DD7800584794 /* CppMetalRendererWrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CppMetalRendererWrapper.mm; sourceTree = "<group>"; };
 		FF9AC3EB2BB3DD8B00584794 /* CppMetalRendererWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CppMetalRendererWrapper.h; sourceTree = "<group>"; };
@@ -110,6 +115,8 @@
 				FFD753AE2BAD565E0037DF49 /* Preview Content */,
 				FF9AC3E62BB3D9AD00584794 /* avptest2-Bridging-Header.h */,
 				FF27F5442BBC2C54003B1C5B /* privImpl.cpp */,
+				FF27F5692BBD0C0C003B1C5B /* AppDelegate.h */,
+				FF27F5672BBD0BF8003B1C5B /* AppDelegate.mm */,
 			);
 			path = avptest2;
 			sourceTree = "<group>";
@@ -205,13 +212,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF27F5452BBC2C54003B1C5B /* privImpl.cpp in Sources */,
+				FF27F56A2BBD0DFB003B1C5B /* nimbase.h in Sources */,
+				FF27F56B2BBD0DFB003B1C5B /* NimMetalRenderer.h in Sources */,
 				FF27F55F2BBD0779003B1C5B /* @m..@s..@s..@s..@s..@s..@sopt@shomebrew@sCellar@snim@s2.0.0_1@snim@slib@sstd@sprivate@sdigitsutils.nim.cpp in Sources */,
 				FF27F5602BBD0779003B1C5B /* @m..@s..@s..@s..@s..@s..@sopt@shomebrew@sCellar@snim@s2.0.0_1@snim@slib@ssystem.nim.cpp in Sources */,
 				FF27F5612BBD0779003B1C5B /* @m..@s..@s..@s..@s..@s..@sopt@shomebrew@sCellar@snim@s2.0.0_1@snim@slib@ssystem@sdollars.nim.cpp in Sources */,
 				FF27F5622BBD0779003B1C5B /* @m..@s..@s..@s..@s..@s..@sopt@shomebrew@sCellar@snim@s2.0.0_1@snim@slib@ssystem@sexceptions.nim.cpp in Sources */,
 				FF27F5632BBD0779003B1C5B /* @mNimMetalRenderer.nim.cpp in Sources */,
 				FF9AC3EA2BB3DD7800584794 /* CppMetalRendererWrapper.mm in Sources */,
-				FF27F5452BBC2C54003B1C5B /* privImpl.cpp in Sources */,
+				FF27F5682BBD0BF8003B1C5B /* AppDelegate.mm in Sources */,
 				FFD753AB2BAD565D0037DF49 /* ContentView.swift in Sources */,
 				FFD753A92BAD565D0037DF49 /* avptest2App.swift in Sources */,
 				FFD753C12BAD782D0037DF49 /* ExampleShader.metal in Sources */,
